@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: n8n
+    runtime: docker
+    dockerfilePath: docker/images/n8n/Dockerfile  # Points to n8n's built-in Dockerfile
+    plan: free
+    envVars:
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_DATABASE
+        value: n8n_db_489k
+      - key: DB_POSTGRESDB_HOST
+        value: dpg-d2cj1lfdiees73fngk1g-a  # From your Render DB connection string
+      - key: DB_POSTGRESDB_PORT
+        value: 5432
+      - key: DB_POSTGRESDB_USER
+        value: n8n_db_489k_user
+      - key: DB_POSTGRESDB_PASSWORD
+        value: Odl0Cfo4vx3GlRS0WstWy8mvoSKdgFdZ
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: true
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: dhWa6wkwbcbS9B
+      - key: N8N_ENCRYPTION_KEY
+        value: rWcVtNE8IqxVtrivP0A8fN/9qTj7whZk
+      - key: WEBHOOK_URL
+        value: https://your-n8n-url.onrender.com
+      - key: N8N_HOST
+        value: 0.0.0.0
+      - key: N8N_PORT
+        value: ${PORT}
+      - key: N8N_PROTOCOL
+        value: https
